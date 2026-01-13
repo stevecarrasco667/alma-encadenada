@@ -27,7 +27,6 @@ class NexoCommand(private val plugin: NexoPlugin) : CommandExecutor, TabComplete
             "unlink" -> handleUnlink(sender, args)
             "linkall" -> handleLinkAll(sender)
             "mode" -> handleMode(sender, args)
-            "giveup" -> handleGiveUp(sender)
             else -> sendHelp(sender)
         }
 
@@ -126,35 +125,17 @@ class NexoCommand(private val plugin: NexoPlugin) : CommandExecutor, TabComplete
         }
     }
 
-    private fun handleGiveUp(sender: CommandSender) {
-        if (sender !is Player) {
-            sender.sendMessage("${ChatColor.RED}Este comando es solo para jugadores.")
-            return
-        }
-
-        // Verificar si está abatido
-        if (!plugin.reviveManager.isDowned(sender)) {
-            sender.sendMessage("${ChatColor.RED}Solo puedes rendirte si estás abatido.")
-            return
-        }
-
-        // Ejecutar muerte voluntaria
-        sender.health = 0.0
-        sender.sendMessage("${ChatColor.RED}Te has rendido.")
-    }
-
     private fun sendHelp(sender: CommandSender) {
         sender.sendMessage("${ChatColor.GOLD}--- Nexo Challenge Core ---")
         sender.sendMessage("${ChatColor.YELLOW}/nexo link <p1> <p2> ${ChatColor.WHITE}- Vincular dos jugadores")
         sender.sendMessage("${ChatColor.YELLOW}/nexo unlink <p> ${ChatColor.WHITE}- Desvincular jugador")
         sender.sendMessage("${ChatColor.YELLOW}/nexo linkall ${ChatColor.WHITE}- Vincular a todos")
         sender.sendMessage("${ChatColor.YELLOW}/nexo mode <mode> <val> ${ChatColor.WHITE}- Cambiar configuración")
-        sender.sendMessage("${ChatColor.YELLOW}/nexo giveup ${ChatColor.WHITE}- Rendirse (si estás abatido)")
     }
 
     override fun onTabComplete(sender: CommandSender, command: Command, alias: String, args: Array<out String>): List<String>? {
         if (args.size == 1) {
-            return listOf("link", "unlink", "linkall", "mode", "giveup").filter { it.startsWith(args[0].lowercase()) }
+            return listOf("link", "unlink", "linkall", "mode").filter { it.startsWith(args[0].lowercase()) }
         }
         if (args.size == 2) {
             when (args[0].lowercase()) {

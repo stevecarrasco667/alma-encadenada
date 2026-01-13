@@ -19,11 +19,8 @@ class SharedDamageListener(private val plugin: NexoPlugin) : Listener {
         if (event.entity !is Player) return
         val player = event.entity as Player
 
-        // 1. Verificar si ya estamos procesando este daño (evitar bucle)
+        // 2. Verificar si ya estamos procesando este daño (evitar bucle)
         if (processingDamage.contains(player.uniqueId)) return
-
-        // 2. Si el jugador está abatido, NO compartir daño (es daño de remate o sangrado)
-        if (plugin.reviveManager.isDowned(player)) return
 
         // 3. Obtener vinculados
         val linkedPlayers = plugin.linkManager.getLinkedPlayers(player)
