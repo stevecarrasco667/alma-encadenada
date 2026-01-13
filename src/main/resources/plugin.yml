@@ -1,0 +1,18 @@
+name: Nexo
+version: 1.0.0
+main: cl.esteban.nexo.NexoPlugin
+api-version: 1.20
+authors: [Esteban]
+description: Plugin Standalone de cooperación física (Parkour en Cadena)
+
+commands:
+  nexo:
+    description: Comando principal de Nexo
+    usage: /nexo [subcomando]
+    aliases: [cadena]
+    permission: nexo.use
+
+permissions:
+  cadena.admin:
+    description: Permite usar comandos de administración de Nexo
+    default: op

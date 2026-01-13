@@ -1,0 +1,52 @@
+# Configuración de Soul Link Ultimate (Nexo)
+# Sistema de Conexión Espiritual Total
+
+# Configuración del vínculo espiritual
+settings:
+  # Físicas de arrastre desactivadas (conexión invisible)
+  physics: false
+  
+  # Distancia máxima: -1 = infinita (funciona entre mundos)
+  max-distance: -1
+  
+  # Compartir efectos de poción entre vinculados
+  share-effects: true
+  
+  # Brújula apunta automáticamente al jugador vinculado
+  compass-tracking: true
+  
+  # Porcentaje de daño compartido (0.0 - 1.0)
+  # 0.5 = 50% del daño se comparte con el vinculado
+  shared-damage-percentage: 0.5
+
+# Configuración de partida
+partida:
+  # Duración de la partida en segundos (300 = 5 minutos)
+  duracion-segundos: 300
+
+# Sistema de puntuación
+puntuacion:
+  # Puntuación basada en puntajesjuegosv2.xlsx
+  # BALANCEADO PARA 10 CHECKPOINTS (PME Total ~210)
+  por-checkpoint:
+    # Puntos base por alcanzar un checkpoint
+    base: 15
+    # Bono adicional para el 1er equipo en alcanzar ESE checkpoint
+    bono-1er-lugar: 6
+    # Bono adicional para el 2do equipo en alcanzar ESE checkpoint
+    bono-2do-lugar: 4
+    # Bono adicional para el 3er equipo en alcanzar ESE checkpoint
+    bono-3er-lugar: 2
+    # NOTA: Total por checkpoint = 15 + bono (6/4/2/0) = 21/19/17/15 pts
+  
+  # Bonos adicionales por completar el parkour (llegar a la meta)
+  por-meta:
+    # Bono para el 1er equipo en completar el parkour
+    bono-1er-lugar: 30
+    # Bono para el 2do equipo en completar el parkour
+    bono-2do-lugar: 20
+    # Bono para el 3er equipo en completar el parkour
+    bono-3er-lugar: 10
+    # Bono para cualquier otro equipo que complete el parkour
+    bono-completar: 5
+
